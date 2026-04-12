@@ -78,6 +78,19 @@
         .also-item a { color: var(--accent); }
         footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.8rem; }
         footer a { color: var(--accent); }
+        .lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+        .lang-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+        .lang-card h3 { font-size: 0.95rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .lang-card .tier-badge { font-size: 0.65rem; font-weight: 600; padding: 0.1rem 0.4rem; border-radius: 6px; }
+        .tier-1 { background: rgba(74, 222, 128, 0.15); color: var(--green); }
+        .tier-2 { background: rgba(251, 191, 36, 0.15); color: var(--yellow); }
+        .tier-3 { background: rgba(251, 146, 60, 0.15); color: var(--orange); }
+        .lang-card ul { list-style: none; padding: 0; margin: 0; }
+        .lang-card li { font-size: 0.82rem; padding: 0.25rem 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; gap: 0.5rem; }
+        .lang-card li:first-child { border-top: none; }
+        .lang-card li a { color: var(--accent); text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .lang-card li a:hover { text-decoration: underline; }
+        .lang-card li .views { color: var(--text-muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
         @media (max-width: 768px) {
             body { padding: 1rem; }
             header h1 { font-size: 1.6rem; }
@@ -93,7 +106,7 @@
         <h1>Fediverse Starter Packs</h1>
         <p>Curated WordPress.com &amp; Jetpack blog recommendations organized by content theme. Research for the <strong>Lisbon 2026 meetup project</strong>.</p>
         <div class="meta-bar">
-            <span class="meta-tag">30 blogs across 6 themes + 25 language packs</span>
+            <span class="meta-tag">35 blogs across 7 themes + 25 language packs</span>
             <span class="meta-tag">All WordPress.com / Jetpack</span>
             <span class="meta-tag">ActivityPub-ready</span>
             <span class="meta-tag">Data pulled Apr 12, 2026</span>
@@ -376,6 +389,52 @@
         </table>
     </section>
 
+    <!-- TECHNOLOGY & SCIENCE -->
+    <section class="pack">
+        <div class="pack-header">
+            <h2>Technology &amp; Science</h2>
+            <span class="pack-stats">5 blogs &middot; ~3.4K total subscribers</span>
+        </div>
+        <p class="pack-description">IT, cybersecurity, biotech, and networking. Lower subscriber counts than other packs but all verified active in 2026 with consistent publishing.</p>
+        <table>
+            <thead><tr>
+                <th>Blog</th><th class="num">Subscribers</th><th class="num">30d Views</th><th class="num">Posts 2026</th><th>Last Post</th><th>ActivityPub</th>
+            </tr></thead>
+            <tbody>
+                <tr>
+                    <td><div class="blog-name"><a href="https://oofhours.com" target="_blank">Out of Office Hours</a><span class="db-badge">DB</span></div>
+                    <div class="blog-desc">Michael Niehaus on IT management, Microsoft Intune, Windows Autopilot, and enterprise deployment.</div></td>
+                    <td class="num subs-mid">1,338</td><td class="num">28,708</td><td class="num activity-mid">10</td><td class="date">Apr 11</td>
+                    <td><span class="ap-status ap-no">Not enabled</span></td>
+                </tr>
+                <tr>
+                    <td><div class="blog-name"><a href="https://www.hackmageddon.com" target="_blank">HACKMAGEDDON</a><span class="db-badge">DB</span></div>
+                    <div class="blog-desc">Cybersecurity attack timelines and statistics. Tracks and visualizes global cyber incidents bi-weekly.</div></td>
+                    <td class="num subs-mid">1,185</td><td class="num">4,906</td><td class="num activity-mid">9</td><td class="date">Mar 26</td>
+                    <td><span class="ap-status ap-no">Not enabled</span></td>
+                </tr>
+                <tr>
+                    <td><div class="blog-name"><a href="https://www.promegaconnections.com" target="_blank">Promega Connections</a><span class="db-badge">DB</span></div>
+                    <div class="blog-desc">Biotech company blog covering science research, lab techniques, and life science news.</div></td>
+                    <td class="num subs-low">644</td><td class="num">27,232</td><td class="num activity-high">21</td><td class="date">Apr 7</td>
+                    <td><span class="ap-status ap-no">Not enabled</span></td>
+                </tr>
+                <tr>
+                    <td><div class="blog-name"><a href="https://thetechnologygeek.org" target="_blank">The Technology Geek</a><span class="db-badge">DB</span></div>
+                    <div class="blog-desc">General technology news, reviews, and analysis for a broad audience.</div></td>
+                    <td class="num subs-low">136</td><td class="num">7,266</td><td class="num activity-low">6</td><td class="date">Mar 13</td>
+                    <td><span class="ap-status ap-no">Not enabled</span></td>
+                </tr>
+                <tr>
+                    <td><div class="blog-name"><a href="https://blog.j2sw.com" target="_blank">j2sw Blog (Packets Down Range)</a><span class="db-badge">DB</span></div>
+                    <div class="blog-desc">Network engineering deep dives. Prolific publisher with 41 posts in 2026.</div></td>
+                    <td class="num subs-low">72</td><td class="num">9,453</td><td class="num activity-high">41</td><td class="date">Apr 8</td>
+                    <td><span class="ap-status ap-no">Not enabled</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
     <div class="note">
         <strong>ActivityPub status:</strong> None of these blogs currently have ActivityPub enabled. All are on WordPress.com or Jetpack, so enabling is straightforward: <em>Settings &rarr; Discussion &rarr; "Enter the fediverse"</em> (Free/Personal/Premium plans) or install the ActivityPub plugin (Business/Commerce).
     </div>
@@ -386,27 +445,24 @@
 
     <!-- ALSO CONSIDERED -->
     <section class="also-considered">
-        <h2>Also Researched (Didn't Make Top 6)</h2>
+        <h2>Also Researched</h2>
+        <p class="pack-description" style="margin-bottom: 1rem;">Themes where we found 1-2 strong anchors but not enough depth for a full 5-blog pack. Could work as smaller 3-blog packs or combined packs.</p>
         <div class="also-list">
             <div class="also-item">
                 <h3>Language &amp; Words</h3>
-                <p><a href="https://stancarey.wordpress.com/">Sentence First</a> (24,308 subs) by linguist Stan Carey is an exceptional anchor. Need 4 more language blogs to fill a pack.</p>
-            </div>
-            <div class="also-item">
-                <h3>Science &amp; Tech</h3>
-                <p><a href="https://www.promegaconnections.com">Promega Connections</a> (7,764 subs, 27K views) and <a href="https://oofhours.com">Out of Office Hours</a> (1,948 subs, 28K views) are strong IT/biotech anchors.</p>
-            </div>
-            <div class="also-item">
-                <h3>Personal Essays</h3>
-                <p><a href="https://robertbrancatelli.blog/">Robert Brancatelli</a> (311 subs) and <a href="https://maybeitsjustme.blog/">Maybe It's Just Me</a> are great individual blogs but hard to fill 5.</p>
-            </div>
-            <div class="also-item">
-                <h3>Lifestyle &amp; Wellness</h3>
-                <p><a href="https://halfcrazymama.com/">Half Crazy Mama</a> (7,508 subs) and <a href="https://mental-health-matters.org/">Mental Health Matters</a> (1,793 subs) lead a scattered category.</p>
+                <p><a href="https://stancarey.wordpress.com/">Sentence First</a> (24,308 subs, 4 posts in 2026) by linguist Stan Carey. Strong anchor, but Dialect Blog is no longer active. Needs 2+ more language/linguistics blogs to fill a pack.</p>
             </div>
             <div class="also-item">
                 <h3>Film &amp; Cinema</h3>
-                <p>Active reviewers exist but subscriber counts are low. Top blog has 2,410 subs. Better as a niche pack than a general one.</p>
+                <p><a href="https://thewonderfulworldofcinema.wordpress.com/">The Wonderful World of Cinema</a> (524 subs, 15 posts in 2026) covers classic film. <a href="https://paulsmoviereviews.wordpress.com/">Paul's Movie Reviews</a> (89 subs, 48 posts in 2026) is prolific. Low subscriber counts but active writers.</p>
+            </div>
+            <div class="also-item">
+                <h3>Personal Essays</h3>
+                <p><a href="https://robertbrancatelli.blog/">Robert Brancatelli</a> (311 subs) and <a href="https://maybeitsjustme.blog/">Maybe It's Just Me</a> are quality individual blogs. Hard to fill 5 without diluting quality.</p>
+            </div>
+            <div class="also-item">
+                <h3>Lifestyle &amp; Wellness</h3>
+                <p><a href="https://halfcrazymama.com/">Half Crazy Mama</a> (54 subs, 3 posts in 2026) is barely active. <a href="https://mental-health-matters.org/">Mental Health Matters</a> (2,047 subs) has not posted since July 2025. Category needs fresh candidates.</p>
             </div>
             <div class="also-item">
                 <h3>Fashion &amp; Design</h3>
@@ -426,7 +482,7 @@
                 <tr><td>Photography</td><td class="num">176,028</td><td style="color: var(--green);">Starter pack created</td></tr>
                 <tr><td>Music</td><td class="num">83,088</td><td style="color: var(--green);">Starter pack created</td></tr>
                 <tr><td>Fashion</td><td class="num">53,394</td><td style="color: var(--text-muted);">Thin top blogs</td></tr>
-                <tr><td>Technology</td><td class="num">33,214</td><td style="color: var(--yellow);">Potential pack</td></tr>
+                <tr><td>Technology</td><td class="num">33,214</td><td style="color: var(--green);">Starter pack created</td></tr>
                 <tr><td>Lifestyle</td><td class="num">30,941</td><td style="color: var(--text-muted);">Scattered</td></tr>
                 <tr><td>Film</td><td class="num">22,444</td><td style="color: var(--text-muted);">Low sub counts</td></tr>
                 <tr><td>Art</td><td class="num">20,147</td><td style="color: var(--text-muted);">Folded into Photography pack</td></tr>
@@ -442,56 +498,256 @@
     <!-- LANGUAGE-BASED STARTER PACKS -->
     <section class="also-considered" style="border-top: 1px solid var(--border); margin-top: 3rem; padding-top: 2rem;">
         <h2>Language-Based Starter Packs</h2>
-        <p class="pack-description" style="margin-bottom: 1rem;">Active WordPress.com blogs per language (>500 views in last 30 days, Blog segment). Sourced from internal <code>lang_id</code> in blog settings. We could offer <strong>up to 25 language packs</strong> with 5 curated blogs each.</p>
+        <p class="pack-description" style="margin-bottom: 1rem;">Top blogs per language from internal analytics, ranked by 30-day views. Active blogs only (>500 views in last 30 days, Blog segment). We could offer <strong>up to 25 language packs</strong>. Blog selections below filter out adult content, download sites, and non-blog properties.</p>
 
-        <h3 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--green);">Tier 1: Deep pools, easy to curate (100+ active blogs)</h3>
-        <table>
-            <thead><tr><th>Language</th><th class="num">Active Blogs</th><th class="num">Total 30d Views</th><th class="num">Avg Views/Blog</th></tr></thead>
-            <tbody>
-                <tr><td>Japanese</td><td class="num">1,025</td><td class="num">15.6M</td><td class="num">15,176</td></tr>
-                <tr><td>Spanish</td><td class="num">585</td><td class="num">11.6M</td><td class="num">19,777</td></tr>
-                <tr><td>French</td><td class="num">529</td><td class="num">4.7M</td><td class="num">8,945</td></tr>
-                <tr><td>German</td><td class="num">321</td><td class="num">3.1M</td><td class="num">9,510</td></tr>
-                <tr><td>Italian</td><td class="num">295</td><td class="num">4.7M</td><td class="num">16,095</td></tr>
-                <tr><td>Portuguese (Brazil)</td><td class="num">250</td><td class="num">14.2M</td><td class="num">56,768</td></tr>
-                <tr><td>Vietnamese</td><td class="num">203</td><td class="num">2.0M</td><td class="num">9,957</td></tr>
-                <tr><td>Dutch</td><td class="num">155</td><td class="num">1.9M</td><td class="num">12,528</td></tr>
-                <tr><td>Chinese (Simplified)</td><td class="num">124</td><td class="num">1.5M</td><td class="num">11,964</td></tr>
-                <tr><td>Polish</td><td class="num">118</td><td class="num">1.4M</td><td class="num">11,635</td></tr>
-                <tr><td>Chinese (Traditional)</td><td class="num">106</td><td class="num">1.3M</td><td class="num">12,561</td></tr>
-            </tbody>
-        </table>
+        <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--green);">Tier 1: 100+ active blogs per language</h3>
+        <div class="lang-grid">
+            <div class="lang-card">
+                <h3>Japanese <span class="tier-badge tier-1">1,025 blogs</span></h3>
+                <ul>
+                    <li><a href="http://bike-news.jp/">Bike no News</a> <span class="views">2.1M</span></li>
+                    <li><a href="http://www.xn--8wv97xz6xo7h.online">HS Baseball News</a> <span class="views">1.3M</span></li>
+                    <li><a href="http://fpsjp.net">EAA FPS News</a> <span class="views">430K</span></li>
+                    <li><a href="https://shibui.estate">Shibui Real Estate</a> <span class="views">370K</span></li>
+                    <li><a href="http://wotaburo.net">Wotaburo (Otaku Blog)</a> <span class="views">368K</span></li>
+                </ul>
+            </div>
+            <div class="lang-card">
+                <h3>Spanish <span class="tier-badge tier-1">585 blogs</span></h3>
+                <ul>
+                    <li><a href="https://www.valenciabonita.es">Valenciabonita</a> <span class="views">1.5M</span></li>
+                    <li><a href="http://www.elciudadano.com/">El Ciudadano</a> <span class="views">1.1M</span></li>
+                    <li><a href="https://www.enlacejudio.com">Enlace Judio</a> <span class="views">350K</span></li>
+                    <li><a href="https://webdelmaestrocmf.com/portal">Web del Maestro CMF</a> <span class="views">319K</span></li>
+                    <li><a href="https://www.diarioantofagasta.cl">El Diario de Antofagasta</a> <span class="views">246K</span></li>
+                </ul>
+            </div>
+            <div class="lang-card">
+                <h3>French <span class="tier-badge tier-1">529 blogs</span></h3>
+                <ul>
+                    <li><a href="https://maghrebactu.com">Maghrebactu</a> <span class="views">315K</span></li>
+                    <li><a href="https://www.mathsenvie.fr">M@ths en-vie</a> <span class="views">293K</span></li>
+                    <li><a href="https://www.gommeetgribouillages.com">Gomme &amp; Gribouillages</a> <span class="views">210K</span></li>
+                    <li><a href="https://planbouffe.ca">PLANbouffe</a> <span class="views">192K</span></li>
+                    <li><a href="https://nouvellesgastronomiques.com">Les Nouvelles Gastronomiques</a> <span class="views">139K</span></li>
+                </ul>
+            </div>
+            <div class="lang-card">
+                <h3>German <span class="tier-badge tier-1">321 blogs</span></h3>
+                <ul>
+                    <li><a href="https://www.googlewatchblog.de">GoogleWatchBlog</a> <span class="views">856K</span></li>
+                    <li><a href="https://presse-augsburg.de">Presse Augsburg</a> <span class="views">246K</span></li>
+                    <li><a href="https://ribbelmonster.de">Ribbelmonster (Knitting)</a> <span class="views">88K</span></li>
+                    <li><a href="https://klaraslife.com">Klara's Life (Vegan)</a> <span class="views">83K</span></li>
+                    <li><a href="https://floatmagazin.de">float Magazin (Boating)</a> <span class="views">76K</span></li>
+                </ul>
+            </div>
+            <div class="lang-card">
+                <h3>Italian <span class="tier-badge tier-1">295 blogs</span></h3>
+                <ul>
+                    <li><a href="https://f1ingenerale.com">F1ingenerale</a> <span class="views">897K</span></li>
+                    <li><a href="https://www.reteabruzzo.com">ReteAbruzzo</a> <span class="views">675K</span></li>
+                    <li><a href="https://www.laparola.it">LaParola.it (Liturgy)</a> <span class="views">272K</span></li>
+                    <li><a href="https://www.teslari.it">TESLARI (Tesla Forum)</a> <span class="views">116K</span></li>
+                    <li><a href="https://www.dolomitireview.com">Dolomiti Review</a> <span class="views">112K</span></li>
+                </ul>
+            </div>
+            <div class="lang-card">
+                <h3>Portuguese (Brazil) <span class="tier-badge tier-1">250 blogs</span></h3>
+                <ul>
+                    <li><a href="https://ovicio.com.br">O Vicio (Anime/Games)</a> <span class="views">5.9M</span></li>
+                    <li><a href="https://gkpb.com.br">GKPB (Marketing)</a> <span class="views">1.4M</span></li>
+                    <li><a href="https://www.aereo.jor.br">Poder Aereo (Aviation)</a> <span class="views">765K</span></li>
+                    <li><a href="https://vocesa.abril.com.br">VOCE S/A (Career)</a> <span class="views">397K</span></li>
+                    <li><a href="https://www.showmetech.com.br">Showmetech</a> <span class="views">240K</span></li>
+                </ul>
+            </div>
+            <div class="lang-card">
+                <h3>Vietnamese <span class="tier-badge tier-1">203 blogs</span></h3>
+                <ul>
+                    <li><a href="http://yiyezhizhoublog.wordpress.com/">Nhat Diep Chi Chu</a> <span class="views">227K</span></li>
+                    <li><a href="https://rosecatteam.home.blog">RoseCat Team</a> <span class="views">215K</span></li>
+                    <li><a href="https://mmtd1314.wordpress.com">Man Man Truong Da</a> <span class="views">88K</span></li>
+                    <li><a href="https://bertselnaldensey.home.blog">Bertsel Naldensey (Photo)</a> <span class="views">81K</span></li>
+                    <li><a href="https://onlytlinh.wordpress.com">Aurora</a> <span class="views">77K</span></li>
+                </ul>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem;">Note: predominantly fan fiction and creative writing community.</p>
+            </div>
+            <div class="lang-card">
+                <h3>Dutch <span class="tier-badge tier-1">155 blogs</span></h3>
+                <ul>
+                    <li><a href="http://www.nuus.be/">NUUS (Flemish News)</a> <span class="views">792K</span></li>
+                    <li><a href="http://ukrant.nl">UKrant.nl (University)</a> <span class="views">284K</span></li>
+                    <li><a href="https://www.deindomama.nl">de Indomama (Lifestyle)</a> <span class="views">28K</span></li>
+                    <li><a href="https://www.nasqbbq.nl">NasQ BBQ (Recipes)</a> <span class="views">27K</span></li>
+                    <li><a href="https://dailynintendo.nl">Daily Nintendo</a> <span class="views">24K</span></li>
+                </ul>
+            </div>
+            <div class="lang-card">
+                <h3>Chinese (Simplified) <span class="tier-badge tier-1">124 blogs</span></h3>
+                <p style="font-size: 0.82rem; color: var(--text-muted);">Almost entirely fan fiction and creative writing. Needs deeper curation for a general-audience pack. Top blog has 425K 30d views.</p>
+            </div>
+            <div class="lang-card">
+                <h3>Polish <span class="tier-badge tier-1">118 blogs</span></h3>
+                <ul>
+                    <li><a href="https://poscigi.pl">Poscigi.pl (Regional News)</a> <span class="views">670K</span></li>
+                    <li><a href="https://niebiescy997.pl">Niebiescy997 (Police Blog)</a> <span class="views">126K</span></li>
+                    <li><a href="https://dobrewiadomosci.net.pl">Dobre Wiadomosci (Good News)</a> <span class="views">73K</span></li>
+                    <li><a href="https://konsolowe.info">Konsolowe.info (Gaming)</a> <span class="views">49K</span></li>
+                    <li><a href="https://trocheinnacukiernia.home.blog">Troche Inna Cukiernia (Baking)</a> <span class="views">22K</span></li>
+                </ul>
+            </div>
+            <div class="lang-card">
+                <h3>Chinese (Traditional) <span class="tier-badge tier-1">106 blogs</span></h3>
+                <ul>
+                    <li><a href="https://www.newsmarket.com.tw">Shang Xia You News (Agri/Env)</a> <span class="views">612K</span></li>
+                    <li><a href="https://travelclub.blog">Travel Club (Travel)</a> <span class="views">144K</span></li>
+                    <li><a href="https://ahui3c.com">3C Liao A-Hui (Tech)</a> <span class="views">67K</span></li>
+                    <li><a href="https://xingyetsai.com">Shutter Happiness (Photo)</a> <span class="views">30K</span></li>
+                    <li><a href="https://fatnya.com">Daily Eater (Food)</a> <span class="views">28K</span></li>
+                </ul>
+            </div>
+        </div>
 
-        <h3 style="font-size: 1rem; margin: 1.5rem 0 0.75rem; color: var(--yellow);">Tier 2: Solid pools, doable (50-100 active blogs)</h3>
-        <table>
-            <thead><tr><th>Language</th><th class="num">Active Blogs</th><th class="num">Total 30d Views</th><th class="num">Avg Views/Blog</th></tr></thead>
-            <tbody>
-                <tr><td>Arabic</td><td class="num">98</td><td class="num">3.1M</td><td class="num">31,604</td></tr>
-                <tr><td>Turkish</td><td class="num">98</td><td class="num">459K</td><td class="num">4,687</td></tr>
-                <tr><td>Russian</td><td class="num">96</td><td class="num">322K</td><td class="num">3,359</td></tr>
-                <tr><td>Indonesian</td><td class="num">96</td><td class="num">886K</td><td class="num">9,233</td></tr>
-                <tr><td>Romanian</td><td class="num">63</td><td class="num">16.5M</td><td class="num">261,389</td></tr>
-                <tr><td>Portuguese (Portugal)</td><td class="num">62</td><td class="num">135K</td><td class="num">2,171</td></tr>
-                <tr><td>Swedish</td><td class="num">61</td><td class="num">217K</td><td class="num">3,565</td></tr>
-            </tbody>
-        </table>
+        <h3 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem; color: var(--yellow);">Tier 2: 50-100 active blogs per language</h3>
+        <div class="lang-grid">
+            <div class="lang-card">
+                <h3>Arabic <span class="tier-badge tier-2">98 blogs</span></h3>
+                <ul>
+                    <li><a href="https://sudafax.com">Sudafax (Sudan News)</a> <span class="views">277K</span></li>
+                    <li><a href="http://coptic-treasures.com/">Coptic Treasures (Heritage)</a> <span class="views">271K</span></li>
+                    <li><a href="https://www.unlimit-tech.com">Unlimit Tech</a> <span class="views">126K</span></li>
+                    <li><a href="https://abunawaf.com">Abu Nawaf (Entertainment)</a> <span class="views">74K</span></li>
+                    <li><a href="https://uae-school.com">UAE School (Education)</a> <span class="views">69K</span></li>
+                </ul>
+            </div>
+            <div class="lang-card">
+                <h3>Turkish <span class="tier-badge tier-2">98 blogs</span></h3>
+                <ul>
+                    <li><a href="https://kurtcesarkisozu.com">Kurdish Song Lyrics</a> <span class="views">72K</span></li>
+                    <li><a href="https://ajanda.ibu.edu.tr">IBU/AJANDA (University)</a> <span class="views">60K</span></li>
+                    <li><a href="https://www.oscarboy.com">Oscar Boy (Film Awards)</a> <span class="views">25K</span></li>
+                    <li><a href="https://www.bulanca.com">BULANCA (IT Blog)</a> <span class="views">15K</span></li>
+                    <li><a href="https://cengizselcuk.com">Cengiz Selcuk (Travel)</a> <span class="views">11K</span></li>
+                </ul>
+            </div>
+            <div class="lang-card">
+                <h3>Russian <span class="tier-badge tier-2">96 blogs</span></h3>
+                <ul>
+                    <li><a href="https://maminapechka.ru">Mamina Pechka (Cooking)</a> <span class="views">31K</span></li>
+                    <li><a href="http://www.cookingpalette.net">Cooking Palette</a> <span class="views">26K</span></li>
+                    <li><a href="https://speedcam.online">SPEEDCAM (Auto News)</a> <span class="views">15K</span></li>
+                    <li><a href="https://sunsetobsession.com">Sunset Obsession (Photography)</a> <span class="views">11K</span></li>
+                    <li><a href="https://un-sci.com">Granite of Science</a> <span class="views">9K</span></li>
+                </ul>
+            </div>
+            <div class="lang-card">
+                <h3>Indonesian <span class="tier-badge tier-2">96 blogs</span></h3>
+                <ul>
+                    <li><a href="https://gadgetren.com">Gadgetren (Tech)</a> <span class="views">133K</span></li>
+                    <li><a href="https://langgam.id">Langgam.id (News)</a> <span class="views">96K</span></li>
+                    <li><a href="https://joglosemarnews.com">JOGLOSEMAR NEWS</a> <span class="views">49K</span></li>
+                    <li><a href="https://borobudurnews.com">BorobudurNews</a> <span class="views">34K</span></li>
+                    <li><a href="http://www.aripitstop.com">Aripitstop (Automotive)</a> <span class="views">23K</span></li>
+                </ul>
+            </div>
+            <div class="lang-card">
+                <h3>Romanian <span class="tier-badge tier-2">63 blogs &middot; 261K avg views</span></h3>
+                <ul>
+                    <li><a href="http://www.g4media.ro/">G4Media.ro</a> <span class="views">13.9M</span></li>
+                    <li><a href="https://www.botosaninews.ro">BotosaniNews.ro</a> <span class="views">1.8M</span></li>
+                    <li><a href="https://resursesmmateblog.wordpress.com">Math Resources Library</a> <span class="views">82K</span></li>
+                    <li><a href="https://www.haisagatim.ro">Hai sa Gatim (Cooking)</a> <span class="views">71K</span></li>
+                    <li><a href="https://edict.ro">EDICT (Education)</a> <span class="views">53K</span></li>
+                </ul>
+            </div>
+            <div class="lang-card">
+                <h3>Portuguese (Portugal) <span class="tier-badge tier-2">62 blogs</span></h3>
+                <ul>
+                    <li><a href="https://cantosdamissa.art.blog">Cantos da Missa (Liturgy)</a> <span class="views">13K</span></li>
+                    <li><a href="https://cinemalgbtbr.wordpress.com">Cinema LGBT</a> <span class="views">7K</span></li>
+                    <li><a href="https://garrafaorubronegro.com">Garrafao Rubro-negro (Basketball)</a> <span class="views">5K</span></li>
+                </ul>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem;">Thin pool. Many sites are downloads or adult content.</p>
+            </div>
+            <div class="lang-card">
+                <h3>Swedish <span class="tier-badge tier-2">61 blogs</span></h3>
+                <ul>
+                    <li><a href="https://www.rucksack.se">Rucksack.se (Travel)</a> <span class="views">66K</span></li>
+                    <li><a href="https://nyttigmatskavaragod.wordpress.com">Nyttig Mat (Healthy Food)</a> <span class="views">10K</span></li>
+                    <li><a href="https://www.enforetagaresvardag.se">En Foretagares Vardag (Biz)</a> <span class="views">10K</span></li>
+                    <li><a href="https://festligatips.com">Festligatips (Party Tips)</a> <span class="views">9K</span></li>
+                    <li><a href="https://www.spadbarnsfonden.se">Spadbarnsfonden (Charity)</a> <span class="views">6K</span></li>
+                </ul>
+            </div>
+        </div>
 
-        <h3 style="font-size: 1rem; margin: 1.5rem 0 0.75rem; color: var(--orange);">Tier 3: Thin but possible (20-50 active blogs)</h3>
-        <table>
-            <thead><tr><th>Language</th><th class="num">Active Blogs</th><th class="num">Total 30d Views</th><th class="num">Avg Views/Blog</th></tr></thead>
-            <tbody>
-                <tr><td>Greek</td><td class="num">36</td><td class="num">1.3M</td><td class="num">36,276</td></tr>
-                <tr><td>Hungarian</td><td class="num">34</td><td class="num">146K</td><td class="num">4,301</td></tr>
-                <tr><td>Finnish</td><td class="num">33</td><td class="num">87K</td><td class="num">2,641</td></tr>
-                <tr><td>Korean</td><td class="num">32</td><td class="num">723K</td><td class="num">22,600</td></tr>
-                <tr><td>Danish</td><td class="num">26</td><td class="num">112K</td><td class="num">4,308</td></tr>
-                <tr><td>Norwegian</td><td class="num">26</td><td class="num">1.8M</td><td class="num">69,657</td></tr>
-                <tr><td>Czech</td><td class="num">26</td><td class="num">41K</td><td class="num">1,568</td></tr>
-            </tbody>
-        </table>
+        <h3 style="font-size: 1.1rem; margin: 1.5rem 0 0.75rem; color: var(--orange);">Tier 3: 20-50 active blogs per language</h3>
+        <div class="lang-grid">
+            <div class="lang-card">
+                <h3>Greek <span class="tier-badge tier-3">36 blogs</span></h3>
+                <ul>
+                    <li><a href="https://xrysoskoufaki.gr">Chryso Skoufaki (Cooking)</a> <span class="views">535K</span></li>
+                    <li><a href="https://www.cretangastronomy.gr">Cretan Gastronomy</a> <span class="views">400K</span></li>
+                    <li><a href="https://www.ellinikahoaxes.gr">Ellinika Hoaxes (Fact-check)</a> <span class="views">105K</span></li>
+                    <li><a href="https://gr.thehungrybites.com">The Hungry Bites</a> <span class="views">27K</span></li>
+                    <li><a href="https://www.gegas.gr">Pavlos Gegas (Wine)</a> <span class="views">17K</span></li>
+                </ul>
+            </div>
+            <div class="lang-card">
+                <h3>Korean <span class="tier-badge tier-3">32 blogs</span></h3>
+                <ul>
+                    <li><a href="https://xlworks.net">Excel Works (Tutorials)</a> <span class="views">43K</span></li>
+                    <li><a href="https://gaonbit.kr">Gaonbit (Picture Books)</a> <span class="views">36K</span></li>
+                    <li><a href="http://autopress.co.kr/">AUTOPRESS (Cars)</a> <span class="views">20K</span></li>
+                </ul>
+            </div>
+            <div class="lang-card">
+                <h3>Norwegian <span class="tier-badge tier-3">26 blogs &middot; 70K avg views</span></h3>
+                <ul>
+                    <li><a href="https://detgladekjokken.no">Det Glade Kjokken (Recipes)</a> <span class="views">1.4M</span></li>
+                    <li><a href="http://www.altasiatisk.no/">Alt Asiatisk (Asian Food)</a> <span class="views">168K</span></li>
+                    <li><a href="https://derimot.no">Derimot (News)</a> <span class="views">160K</span></li>
+                    <li><a href="https://www.bike.no">Bike (Motorcycles)</a> <span class="views">20K</span></li>
+                    <li><a href="https://www.tinderangel.no">Tinderangel (Hiking)</a> <span class="views">11K</span></li>
+                </ul>
+            </div>
+            <div class="lang-card">
+                <h3>Hungarian <span class="tier-badge tier-3">34 blogs</span></h3>
+                <ul>
+                    <li><a href="https://fejtsdmegmost.com">Fejtsd Meg Most! (Quizzes)</a> <span class="views">41K</span></li>
+                    <li><a href="https://delolaszdolcevita.wordpress.com">Del-Olasz Dolce Vita (Italy)</a> <span class="views">20K</span></li>
+                    <li><a href="https://bdpst24.hu">Budapest24 (City News)</a> <span class="views">4K</span></li>
+                </ul>
+            </div>
+            <div class="lang-card">
+                <h3>Finnish <span class="tier-badge tier-3">33 blogs</span></h3>
+                <ul>
+                    <li><a href="https://meriharakka.net">Meriharakka.net (Travel)</a> <span class="views">18K</span></li>
+                    <li><a href="https://nalka.blog">Nalka (Food/Recipes)</a> <span class="views">11K</span></li>
+                    <li><a href="https://kky-ry.fi">Cat Rescue KKY ry</a> <span class="views">8K</span></li>
+                </ul>
+            </div>
+            <div class="lang-card">
+                <h3>Danish <span class="tier-badge tier-3">26 blogs</span></h3>
+                <ul>
+                    <li><a href="https://www.homebybianca.dk">Home by Bianca (Food)</a> <span class="views">26K</span></li>
+                    <li><a href="https://www.slagtenhelligko.dk">Slagt en Hellig Ko</a> <span class="views">19K</span></li>
+                    <li><a href="https://livja.dk">Livja DK (Plus-size Fashion)</a> <span class="views">6K</span></li>
+                </ul>
+            </div>
+            <div class="lang-card">
+                <h3>Czech <span class="tier-badge tier-3">26 blogs</span></h3>
+                <ul>
+                    <li><a href="https://running2.cz">Running2 (Running Blog)</a> <span class="views">11K</span></li>
+                    <li><a href="https://holkycestovatelky.cz">Deny &amp; Carol (Travel)</a> <span class="views">2K</span></li>
+                    <li><a href="https://www.f22.cz">F22.cz (Photography)</a> <span class="views">1K</span></li>
+                </ul>
+            </div>
+        </div>
 
         <div class="note" style="margin-top: 1rem;">
-            <strong>Standout stats:</strong> Romanian has only 63 active blogs but averages 261K views/blog, driven by a few very large publications. Norwegian (70K avg) and Portuguese-BR (57K avg) also punch well above their size. Chinese could be offered as one combined pack or split into Simplified and Traditional for different audiences.
+            <strong>Data source:</strong> All language blog data from internal analytics DB (<code>blogs.owned_blogs</code> joined with <code>wpcom.blog_properties.lang_id</code>). View counts are 30-day totals as of April 12, 2026. Blog selections were manually filtered to exclude adult content, piracy/download sites, and non-blog properties (shops, government portals). Chinese Simplified blogs are predominantly fan fiction. Norwegian and Romanian have outsized per-blog viewership despite small pools.
         </div>
     </section>
 
