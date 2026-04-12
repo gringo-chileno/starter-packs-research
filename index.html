@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fediverse Starter Packs - Blog Research</title>
+    <style>
+        :root {
+            --bg: #0f1117;
+            --surface: #1a1d27;
+            --surface-hover: #222636;
+            --border: #2a2e3d;
+            --text: #e4e6ed;
+            --text-muted: #8b8fa3;
+            --accent: #6c8cff;
+            --accent-dim: #4a6adb;
+            --green: #4ade80;
+            --yellow: #fbbf24;
+            --red: #f87171;
+            --orange: #fb923c;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent), #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 0.5rem auto;
+        }
+
+        header .context-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        header .context-link:hover { opacity: 1; }
+
+        .meta-bar {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .meta-tag {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 0.3rem 0.9rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .pack {
+            margin-bottom: 3rem;
+        }
+
+        .pack-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .pack-header h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .pack-header .pack-stats {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .pack-description {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--surface);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        thead {
+            background: var(--surface-hover);
+        }
+
+        th {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 0.75rem 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            background: var(--surface-hover);
+        }
+
+        .blog-name {
+            font-weight: 600;
+        }
+
+        .blog-name a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .blog-name a:hover {
+            text-decoration: underline;
+        }
+
+        .blog-desc {
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            margin-top: 0.2rem;
+        }
+
+        .num {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+        }
+
+        .subs-high { color: var(--green); font-weight: 600; }
+        .subs-mid { color: var(--yellow); }
+        .subs-low { color: var(--orange); }
+
+        .activity-high { color: var(--green); }
+        .activity-mid { color: var(--text); }
+        .activity-low { color: var(--orange); }
+
+        .ap-status {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .ap-no {
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--yellow);
+        }
+
+        .ap-yes {
+            background: rgba(74, 222, 128, 0.15);
+            color: var(--green);
+        }
+
+        .date {
+            white-space: nowrap;
+        }
+
+        .note {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .note strong { color: var(--text); }
+
+        .also-considered {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .also-considered h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .also-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .also-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .also-item h3 {
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .also-item p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 1rem; }
+            header h1 { font-size: 1.6rem; }
+            table { font-size: 0.82rem; }
+            th, td { padding: 0.5rem 0.6rem; }
+            .pack-header { flex-direction: column; gap: 0.25rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Fediverse Starter Packs</h1>
+            <p>Curated WordPress.com &amp; Jetpack blog recommendations organized by content theme. Research for the <strong>Lisbon 2026 meetup project</strong>.</p>
+            <div class="meta-bar">
+                <span class="meta-tag">25 blogs across 5 themes</span>
+                <span class="meta-tag">All WordPress.com / Jetpack</span>
+                <span class="meta-tag">ActivityPub-ready</span>
+                <span class="meta-tag">Data pulled Apr 12, 2026</span>
+            </div>
+        </header>
+
+        <!-- FOOD & DRINK -->
+        <section class="pack">
+            <div class="pack-header">
+                <h2>Food &amp; Drink</h2>
+                <span class="pack-stats">5 blogs &middot; ~123K total subscribers</span>
+            </div>
+            <p class="pack-description">From historical recipes to sports nutrition to wine culture. Universal appeal, broad range of cooking styles.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Blog</th>
+                        <th class="num">Subscribers</th>
+                        <th class="num">Posts in 2026</th>
+                        <th>Last Post</th>
+                        <th>ActivityPub</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://chefallieskitchen.com/" target="_blank">Chef Allie's Kitchen</a></div>
+                            <div class="blog-desc">Healthy recipes including Weight Watchers-inspired dishes. Massive recipe library and app.</div>
+                        </td>
+                        <td class="num subs-high">114,240</td>
+                        <td class="num activity-mid">11</td>
+                        <td class="date">Apr 6</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://ahundredyearsago.com/" target="_blank">A Hundred Years Ago</a></div>
+                            <div class="blog-desc">Modernized recipes from early 1900s cookbooks. Weekly deep dives into food history.</div>
+                        </td>
+                        <td class="num subs-mid">3,594</td>
+                        <td class="num activity-high">29</td>
+                        <td class="date">Apr 9</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://historyandwine.com/" target="_blank">History &amp; Wine</a></div>
+                            <div class="blog-desc">Sommelier-written wine reviews, seasonal guides, and Miami wine scene coverage.</div>
+                        </td>
+                        <td class="num subs-mid">3,055</td>
+                        <td class="num activity-low">4</td>
+                        <td class="date">Mar 15</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://cuisinehelvetica.com/" target="_blank">Cuisine Helvetica</a></div>
+                            <div class="blog-desc">Swiss food, drink &amp; culinary travel. Recipes, dining recommendations, and food events.</div>
+                        </td>
+                        <td class="num subs-mid">1,215</td>
+                        <td class="num activity-low">3</td>
+                        <td class="date">Mar 31</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://therunningchef.uk/" target="_blank">The Running Chef</a></div>
+                            <div class="blog-desc">UK chef &amp; runner creating sports nutrition recipes backed by sports science.</div>
+                        </td>
+                        <td class="num subs-mid">1,146</td>
+                        <td class="num activity-mid">6</td>
+                        <td class="date">Apr 11</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- WORLD TRAVEL -->
+        <section class="pack">
+            <div class="pack-header">
+                <h2>World Travel</h2>
+                <span class="pack-stats">5 blogs &middot; ~10.5K total subscribers</span>
+            </div>
+            <p class="pack-description">Globe-trotting photography, destination guides, and travel stories. Visual and social, ideal for fediverse discovery.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Blog</th>
+                        <th class="num">Subscribers</th>
+                        <th class="num">Posts in 2026</th>
+                        <th>Last Post</th>
+                        <th>ActivityPub</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://travelsandtrifles.wordpress.com/" target="_blank">Travels and Trifles</a></div>
+                            <div class="blog-desc">Travel photography by Tina Schell. Wildlife, landscapes, cultural scenes worldwide. Lens-Artists Challenge participant.</div>
+                        </td>
+                        <td class="num subs-high">8,569</td>
+                        <td class="num activity-mid">15</td>
+                        <td class="date">Apr 11</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://andysworldjourneys.com/" target="_blank">Andy's World Journeys</a></div>
+                            <div class="blog-desc">103+ countries documented with photography, budget tips, and accommodation reviews. 300+ daily views.</div>
+                        </td>
+                        <td class="num subs-mid">1,389</td>
+                        <td class="num activity-high">55</td>
+                        <td class="date">Apr 12</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://thissweetlife.blog/" target="_blank">This Sweet Life</a></div>
+                            <div class="blog-desc">Luxury family travel: destinations, influencer mentorship, celebration planning.</div>
+                        </td>
+                        <td class="num subs-low">312</td>
+                        <td class="num activity-mid">8</td>
+                        <td class="date">Mar 27</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://memoriesofatraveladdictchick.wordpress.com/" target="_blank">Memories of a Travel Addict Chick</a></div>
+                            <div class="blog-desc">Tour guide in 30+ countries, traveling with Type 1 Diabetes &amp; gluten sensitivity.</div>
+                        </td>
+                        <td class="num subs-low">135</td>
+                        <td class="num activity-low">4</td>
+                        <td class="date">Feb 11</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://theonewhereitravel.wordpress.com/" target="_blank">The One Where I Travel</a></div>
+                            <div class="blog-desc">Journey through cultures, cuisines, and stories of people met along the way.</div>
+                        </td>
+                        <td class="num subs-low">55</td>
+                        <td class="num activity-low">4</td>
+                        <td class="date">Mar 14</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- PHOTOGRAPHY & VISUAL ARTS -->
+        <section class="pack">
+            <div class="pack-header">
+                <h2>Photography &amp; Visual Arts</h2>
+                <span class="pack-stats">5 blogs &middot; ~53K total subscribers</span>
+            </div>
+            <p class="pack-description">Visual-first blogs. Posts with images perform well in ActivityPub feeds, making these natural candidates for starter packs.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Blog</th>
+                        <th class="num">Subscribers</th>
+                        <th class="num">Posts in 2026</th>
+                        <th>Last Post</th>
+                        <th>ActivityPub</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://postsecret.com/" target="_blank">PostSecret</a></div>
+                            <div class="blog-desc">Anonymous handwritten postcards published every Sunday. Self-described as "the largest advertisement-free blog in the world."</div>
+                        </td>
+                        <td class="num subs-high">33,156</td>
+                        <td class="num activity-mid">6</td>
+                        <td class="date">Apr 11</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://thefrugalcrafter.wordpress.com/" target="_blank">The Frugal Crafter</a></div>
+                            <div class="blog-desc">Art tutorials, watercolor, gouache by Lindsay Weirich. 3,800+ YouTube videos companion blog.</div>
+                        </td>
+                        <td class="num subs-high">10,543</td>
+                        <td class="num activity-mid">16</td>
+                        <td class="date">Apr 11</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://sustainabilitea.wordpress.com/" target="_blank">This, That &amp; the Other Thing</a></div>
+                            <div class="blog-desc">Photography &amp; lifestyle blog. Active Lens-Artists Challenge participant with nature and cultural photography.</div>
+                        </td>
+                        <td class="num subs-high">6,492</td>
+                        <td class="num activity-high">47</td>
+                        <td class="date">Apr 12</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://kevinstandagephotography.wordpress.com/" target="_blank">Kevin Standage Photography</a></div>
+                            <div class="blog-desc">Indian heritage sites and cultural documentation. Travel photography across India.</div>
+                        </td>
+                        <td class="num subs-mid">2,636</td>
+                        <td class="num activity-mid">6</td>
+                        <td class="date">Apr 8</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://patrickhadfieldphotography.wordpress.com/" target="_blank">Patrick Hadfield Photography</a></div>
+                            <div class="blog-desc">Architecture, landscapes, concerts, and people. Focused on Edinburgh and London street photography.</div>
+                        </td>
+                        <td class="num subs-low">178</td>
+                        <td class="num activity-high">27</td>
+                        <td class="date">Apr 11</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- BOOKS & LITERARY LIFE -->
+        <section class="pack">
+            <div class="pack-header">
+                <h2>Books &amp; Literary Life</h2>
+                <span class="pack-stats">5 blogs &middot; ~82.5K total subscribers</span>
+            </div>
+            <p class="pack-description">WordPress.com has always been a writers' platform. Deep community of book reviewers, literary magazines, and craft essayists.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Blog</th>
+                        <th class="num">Subscribers</th>
+                        <th class="num">Posts in 2026</th>
+                        <th>Last Post</th>
+                        <th>ActivityPub</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://brevity.wordpress.com/" target="_blank">Brevity Blog</a></div>
+                            <div class="blog-desc">The craft of writing essays. Working writers &amp; educators sharing insights. Managed by editor Allison K Williams.</div>
+                        </td>
+                        <td class="num subs-high">62,598</td>
+                        <td class="num activity-high">71</td>
+                        <td class="date">Apr 10</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://alittleblogofbooks.com/" target="_blank">A Little Blog of Books</a></div>
+                            <div class="blog-desc">Book reviews and literary musings. Contemporary fiction and memoirs with a high trust factor among readers.</div>
+                        </td>
+                        <td class="num subs-high">7,942</td>
+                        <td class="num activity-low">5</td>
+                        <td class="date">Mar 22</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://pagesunbound.wordpress.com/" target="_blank">Pages Unbound</a></div>
+                            <div class="blog-desc">Book reviews &amp; discussions. Published "45 Book Bloggers to Follow in 2026." Active community hub.</div>
+                        </td>
+                        <td class="num subs-high">6,847</td>
+                        <td class="num activity-high">102</td>
+                        <td class="date">Apr 12</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://eunoiareview.wordpress.com/" target="_blank">Eunoia Review</a></div>
+                            <div class="blog-desc">Literary magazine publishing poetry, fiction, and essays. Publishes daily (406 posts so far in 2026).</div>
+                        </td>
+                        <td class="num subs-high">4,859</td>
+                        <td class="num activity-high">406</td>
+                        <td class="date">Apr 12</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://tkmedu.com/" target="_blank">The King's Monologue</a></div>
+                            <div class="blog-desc">African history resource hub. Essays and research challenging Eurocentric interpretations.</div>
+                        </td>
+                        <td class="num subs-low">307</td>
+                        <td class="num activity-low">5</td>
+                        <td class="date">Mar 13</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ECONOMICS & IDEAS -->
+        <section class="pack">
+            <div class="pack-header">
+                <h2>Economics &amp; Ideas</h2>
+                <span class="pack-stats">5 blogs &middot; ~20.3K total subscribers</span>
+            </div>
+            <p class="pack-description">Strong WordPress.com native community of economics and history-of-science bloggers. High-readership intellectual content that stands apart from social media.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Blog</th>
+                        <th class="num">Subscribers</th>
+                        <th class="num">Posts in 2026</th>
+                        <th>Last Post</th>
+                        <th>ActivityPub</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://thenextrecession.wordpress.com/" target="_blank">Michael Roberts Blog</a></div>
+                            <div class="blog-desc">Marxist economics analysis. 6.2M lifetime views. Covers global political economy, tariffs, inflation.</div>
+                        </td>
+                        <td class="num subs-high">8,525</td>
+                        <td class="num activity-high">27</td>
+                        <td class="date">Apr 11</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://thonyc.wordpress.com/" target="_blank">The Renaissance Mathematicus</a></div>
+                            <div class="blog-desc">History of science &amp; astronomy from Renaissance to Scientific Revolution. Myth-busting scholarship.</div>
+                        </td>
+                        <td class="num subs-high">6,421</td>
+                        <td class="num activity-mid">16</td>
+                        <td class="date">Apr 8</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://rwer.wordpress.com/" target="_blank">Real-World Economics Review</a></div>
+                            <div class="blog-desc">Multi-author journal blog. Contributors include Krugman, Dean Baker, Lars Syll, and others.</div>
+                        </td>
+                        <td class="num subs-mid">2,451</td>
+                        <td class="num activity-high">34</td>
+                        <td class="date">Apr 10</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://mostlyeconomics.wordpress.com/" target="_blank">Mostly Economics</a></div>
+                            <div class="blog-desc">Research-focused economics blog with emphasis on India. Extremely prolific daily link curation.</div>
+                        </td>
+                        <td class="num subs-mid">2,278</td>
+                        <td class="num activity-high">165</td>
+                        <td class="date">Apr 9</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="blog-name"><a href="https://larspsyll.wordpress.com/" target="_blank">Lars P. Syll</a></div>
+                            <div class="blog-desc">Swedish economics professor critiquing mainstream economics. Heterodox views, among "20 Best Economics Blogs."</div>
+                        </td>
+                        <td class="num subs-low">597</td>
+                        <td class="num activity-high">118</td>
+                        <td class="date">Apr 12</td>
+                        <td><span class="ap-status ap-no">Not enabled</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <div class="note">
+            <strong>ActivityPub status:</strong> None of these blogs currently have ActivityPub enabled. All are on WordPress.com or Jetpack, so it's a simple toggle: <em>Settings &rarr; Discussion &rarr; "Enter the fediverse"</em> (Free/Personal/Premium plans) or install the ActivityPub plugin (Business/Commerce). We can enable it ourselves.
+        </div>
+
+        <!-- ALSO CONSIDERED -->
+        <section class="also-considered">
+            <h2>Also Researched (Didn't Make Top 5)</h2>
+            <div class="also-list">
+                <div class="also-item">
+                    <h3>Music &amp; Entertainment</h3>
+                    <p><a href="https://musicindustryblog.wordpress.com/" style="color: var(--accent);">Music Industry Blog</a> (7,938 subs) by Mark Mulligan/MIDiA Research is the standout. Thinner overall pool.</p>
+                </div>
+                <div class="also-item">
+                    <h3>Personal Essays</h3>
+                    <p><a href="https://robertbrancatelli.blog/" style="color: var(--accent);">Robert Brancatelli</a> (311 subs) and <a href="https://maybeitsjustme.blog/" style="color: var(--accent);">Maybe It's Just Me</a> are great individual blogs but hard to fill 5.</p>
+                </div>
+                <div class="also-item">
+                    <h3>DIY &amp; Crafts</h3>
+                    <p>The Frugal Crafter moved to Photography &amp; Visual Arts. Rest of category too niche for a general starter pack.</p>
+                </div>
+                <div class="also-item">
+                    <h3>Mental Health &amp; Mindfulness</h3>
+                    <p>Many small WordPress.com blogs exist but few with real readership or consistent posting.</p>
+                </div>
+                <div class="also-item">
+                    <h3>Homeschool / Education</h3>
+                    <p>Active community but too niche for a general-audience starter pack.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Research compiled for the <a href="https://loopp2.wordpress.com/2026/03/19/team-meetup-lisbon-2026-project-idea/" style="color: var(--accent);">Lisbon 2026 Meetup Starter Packs Project</a> &middot; Linear: <a href="https://linear.app/a8c/project/starter-packs-7bcb9443124c" style="color: var(--accent);">Starter Packs (1)</a> &middot; <a href="https://linear.app/a8c/project/starter-packs-abe6585e21f7" style="color: var(--accent);">Starter Packs (2)</a></p>
+            <p style="margin-top: 0.5rem;">Subscriber counts and post data pulled from the WordPress.com REST API on April 12, 2026.</p>
+        </footer>
+    </div>
+</body>
+</html>
