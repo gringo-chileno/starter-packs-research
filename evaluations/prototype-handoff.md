@@ -2,7 +2,7 @@
 
 ## What this is
 
-Research page for the ActivityPub WordPress plugin team's Lisbon 2026 meetup project. Curated WordPress blog recommendations organized into starter packs that users can follow on the fediverse via ActivityPub.
+Research page for the ActivityPub WordPress plugin team's Lisbon 2026 meetup project. Curated WordPress blog recommendations organized into starter packs that users can follow on WordPress.com Reader and the fediverse via ActivityPub.
 
 **Live research page:** https://gringo-chileno.github.io/starter-packs-research/
 **GitHub repo:** https://github.com/gringo-chileno/starter-packs-research
@@ -15,7 +15,7 @@ Research page for the ActivityPub WordPress plugin team's Lisbon 2026 meetup pro
 All blogs scored on a 5-dimension rubric (content quality, reader appeal, brand safety, fediverse fit, visual polish) with 1-5 per dimension, 25 max. Evaluation docs in `evaluations/` folder.
 
 | Pack | Blogs | Score range | Notes |
-|------|-------|-------------|-------|
+| --- | --- | --- | --- |
 | Food & Drink | 5 | 18-24 | Replaced Graceful Little Honey Bee (ad-choked) with Boston Girl Bakes |
 | World Travel | 5 | 17-21 | Replaced Travel with Karla (content drift) with BudgetTraveller. LOTUS EATERS TRAVEL kept despite name similarity to political site. |
 | Photography & Visual Arts | 5 | 17-24 | PostSecret kept despite heavy emotional themes (suicide, self-harm in anonymous postcards). Streets of Nuremberg is standout (24). |
@@ -62,7 +62,7 @@ Recommended 5 (all confirmed active WordPress+Jetpack):
 ## File structure
 
 ```
-/Users/robpugh/Vibe/starter-packs/
+/Users/robpugh/work/projects/starter-packs/
   index.html                          -- main page (GitHub Pages)
   evaluations/
     food-and-drink.md                 -- rubric scores + notes
