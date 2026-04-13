@@ -11,7 +11,7 @@ Research page for the ActivityPub WordPress plugin team's Lisbon 2026 meetup pro
 
 ## Current state
 
-### Theme-based packs (7 packs, 34 blogs total)
+### Theme-based packs (8 packs, 39 blogs total)
 All blogs scored on a 5-dimension rubric (content quality, reader appeal, brand safety, fediverse fit, visual polish) with 1-5 per dimension, 25 max. Evaluation docs in `evaluations/` folder.
 
 | Pack | Blogs | Score range | Notes |
@@ -23,6 +23,7 @@ All blogs scored on a 5-dimension rubric (content quality, reader appeal, brand 
 | Economics & Ideas | 4 | 18-24 | Removed Lars P. Syll (crude political language) and Real-World Economics Review (inflammatory reposts). Added Surplus Energy Economics. Conversable Economist is standout (24). |
 | Music | 5 | 18-24 | Replaced Kenta (all Japanese) with Brutally Honest Rock Album Reviews. Song of the Day is standout (24). |
 | Technology & Science | 5 | 18-23 | Replaced The Technology Geek (inactive, possibly AI-generated) with Schneier on Security. Added Shtetl-Optimized (Scott Aaronson, quantum computing). Removed Promega Connections (corporate blog). |
+| Notable Authors | 5 | 19-24 | Seth Godin (24), John Scalzi (22), Jenny Lawson (21), Cory Doctorow (21), Hugh Howey (19). Doctorow already has 74K+ Mastodon followers. |
 
 ### Language-based packs (20 packs, ~80 blogs)
 Organized in 3 tiers by blog pool size:
@@ -32,16 +33,16 @@ Organized in 3 tiers by blog pool size:
 
 Data from internal analytics DB (blogs.owned_blogs joined with wpcom.blog_properties.lang_id). Blogs ranked by 30-day views, individually verified for language, activity, and content. Arabic pack was removed (no quality blogs available).
 
-### Notable Authors pack (proposed, not yet on page)
-Recommended 5 (all confirmed active WordPress+Jetpack):
+### Notable Authors pack (5 blogs, added to page)
+All confirmed active WordPress or Jetpack-connected:
 
-1. **Seth Godin** (seths.blog) -- 24/25. Marketing icon, daily blogger, 13,886 subs. Minimalist short-form insights.
-2. **John Scalzi** (whatever.scalzi.com) -- 22/25. Hugo-winning sci-fi author, daily blogger, 26,689 subs. Personal voice (cats, politics, food, books).
-3. **Jenny Lawson / The Bloggess** (thebloggess.com) -- 21/25. NYT bestselling humor/memoir. New book #4 NYT April 2026.
-4. **Cory Doctorow** (pluralistic.net) -- 21/25. Author/activist, coined "enshittification." Already has 74K+ Mastodon followers.
-5. **Hugh Howey** (hughhowey.com) -- 19/25. Silo/Wool series (Apple TV+ show). Philosophical essays.
+1. **Seth Godin** (seths.blog) -- 24/25. Marketing icon, daily blogger, 13,887 subs, 276,820 30d views. Minimalist short-form insights.
+2. **John Scalzi** (whatever.scalzi.com) -- 22/25. Hugo-winning sci-fi author, daily blogger, 32,505 subs, 97,536 30d views.
+3. **Jenny Lawson / The Bloggess** (thebloggess.com) -- 21/25. NYT bestselling humor/memoir, 16,404 subs, 91,355 30d views. Book #4 hit NYT list April 2026.
+4. **Cory Doctorow** (pluralistic.net) -- 21/25. Author/activist, coined "enshittification." Already has 74K+ Mastodon followers. Jetpack site (views not tracked in internal DB).
+5. **Hugh Howey** (hughhowey.com) -- 19/25. Silo/Wool series (Apple TV+ show), 2,597 subs, 14,170 30d views. Low posting frequency (5 posts in 2026).
 
-**Moonshot:** George R.R. Martin (georgerrmartin.com/notablog/). Self-hosted WordPress but no Jetpack. Would need outreach to install ActivityPub plugin.
+**Moonshot:** George R.R. Martin (georgerrmartin.com/notablog/). Self-hosted WordPress, no Jetpack. Konstantin Obenland suggested outreach on the Strike P2 in Feb 2014 but no follow-through found. Team 51 outreach form at to51outreach.wordpress.com could be used for a new request.
 
 ## Data sources
 
@@ -72,6 +73,7 @@ Recommended 5 (all confirmed active WordPress+Jetpack):
     economics.md
     music.md
     technology.md
+    notable-authors.md               -- rubric scores + notes
     prototype-handoff.md              -- this file
 ```
 
